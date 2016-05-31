@@ -12,6 +12,10 @@
 		61FFF94C1CFDE33000C9A256 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FFF94A1CFDE33000C9A256 /* Main.storyboard */; };
 		61FFF94E1CFDE33000C9A256 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61FFF94D1CFDE33000C9A256 /* Assets.xcassets */; };
 		61FFF9511CFDE33000C9A256 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FFF94F1CFDE33000C9A256 /* LaunchScreen.storyboard */; };
+		61FFF9601CFDFC8100C9A256 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF95B1CFDFC8100C9A256 /* TFHpple.m */; };
+		61FFF9611CFDFC8100C9A256 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF95D1CFDFC8100C9A256 /* TFHppleElement.m */; };
+		61FFF9621CFDFC8100C9A256 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF95F1CFDFC8100C9A256 /* XPathQuery.m */; };
+		61FFF9641CFDFD3200C9A256 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FFF9631CFDFD3200C9A256 /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,14 @@
 		61FFF94D1CFDE33000C9A256 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61FFF9501CFDE33000C9A256 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61FFF9521CFDE33000C9A256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61FFF9591CFDFC8100C9A256 /* Event Info-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Event Info-Bridging-Header.h"; sourceTree = "<group>"; };
+		61FFF95A1CFDFC8100C9A256 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		61FFF95B1CFDFC8100C9A256 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		61FFF95C1CFDFC8100C9A256 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		61FFF95D1CFDFC8100C9A256 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		61FFF95E1CFDFC8100C9A256 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		61FFF95F1CFDFC8100C9A256 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		61FFF9631CFDFD3200C9A256 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FFF9641CFDFD3200C9A256 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +51,7 @@
 		61FFF93A1CFDE33000C9A256 = {
 			isa = PBXGroup;
 			children = (
+				61FFF9631CFDFD3200C9A256 /* libxml2.tbd */,
 				61FFF9451CFDE33000C9A256 /* Event Info */,
 				61FFF9441CFDE33000C9A256 /* Products */,
 			);
@@ -54,6 +68,8 @@
 		61FFF9451CFDE33000C9A256 /* Event Info */ = {
 			isa = PBXGroup;
 			children = (
+				61FFF9591CFDFC8100C9A256 /* Event Info-Bridging-Header.h */,
+				61FFF9581CFDFC6E00C9A256 /* Hpple */,
 				61FFF9461CFDE33000C9A256 /* AppDelegate.swift */,
 				61FFF9481CFDE33000C9A256 /* ViewController.swift */,
 				61FFF94A1CFDE33000C9A256 /* Main.storyboard */,
@@ -62,6 +78,19 @@
 				61FFF9521CFDE33000C9A256 /* Info.plist */,
 			);
 			path = "Event Info";
+			sourceTree = "<group>";
+		};
+		61FFF9581CFDFC6E00C9A256 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				61FFF95A1CFDFC8100C9A256 /* TFHpple.h */,
+				61FFF95B1CFDFC8100C9A256 /* TFHpple.m */,
+				61FFF95C1CFDFC8100C9A256 /* TFHppleElement.h */,
+				61FFF95D1CFDFC8100C9A256 /* TFHppleElement.m */,
+				61FFF95E1CFDFC8100C9A256 /* XPathQuery.h */,
+				61FFF95F1CFDFC8100C9A256 /* XPathQuery.m */,
+			);
+			name = Hpple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FFF9611CFDFC8100C9A256 /* TFHppleElement.m in Sources */,
 				61FFF9491CFDE33000C9A256 /* ViewController.swift in Sources */,
+				61FFF9621CFDFC8100C9A256 /* XPathQuery.m in Sources */,
+				61FFF9601CFDFC8100C9A256 /* TFHpple.m in Sources */,
 				61FFF9471CFDE33000C9A256 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,10 +281,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Event Info/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ticketmaster.Event-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Event Info/Event Info-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -260,10 +296,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Event Info/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ticketmaster.Event-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Event Info/Event Info-Bridging-Header.h";
 			};
 			name = Release;
 		};
