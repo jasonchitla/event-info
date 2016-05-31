@@ -9,6 +9,11 @@
 import Foundation
 
 struct Festival {
+    let name:String
+    var lineup:[Band]
+}
+
+struct Band {
     let url:NSURL?
     let name:String
 }
