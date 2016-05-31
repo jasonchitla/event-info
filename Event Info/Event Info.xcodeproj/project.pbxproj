@@ -16,6 +16,8 @@
 		61FFF9611CFDFC8100C9A256 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF95D1CFDFC8100C9A256 /* TFHppleElement.m */; };
 		61FFF9621CFDFC8100C9A256 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF95F1CFDFC8100C9A256 /* XPathQuery.m */; };
 		61FFF9641CFDFD3200C9A256 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FFF9631CFDFD3200C9A256 /* libxml2.tbd */; };
+		61FFF9661CFE138800C9A256 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF9651CFE138800C9A256 /* ParseManager.swift */; };
+		61FFF9681CFE13A500C9A256 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF9671CFE13A500C9A256 /* Festival.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		61FFF95E1CFDFC8100C9A256 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		61FFF95F1CFDFC8100C9A256 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		61FFF9631CFDFD3200C9A256 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		61FFF9651CFE138800C9A256 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		61FFF9671CFE13A500C9A256 /* Festival.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				61FFF94D1CFDE33000C9A256 /* Assets.xcassets */,
 				61FFF94F1CFDE33000C9A256 /* LaunchScreen.storyboard */,
 				61FFF9521CFDE33000C9A256 /* Info.plist */,
+				61FFF9651CFE138800C9A256 /* ParseManager.swift */,
+				61FFF9671CFE13A500C9A256 /* Festival.swift */,
 			);
 			path = "Event Info";
 			sourceTree = "<group>";
@@ -165,6 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FFF9611CFDFC8100C9A256 /* TFHppleElement.m in Sources */,
+				61FFF9661CFE138800C9A256 /* ParseManager.swift in Sources */,
+				61FFF9681CFE13A500C9A256 /* Festival.swift in Sources */,
 				61FFF9491CFDE33000C9A256 /* ViewController.swift in Sources */,
 				61FFF9621CFDFC8100C9A256 /* XPathQuery.m in Sources */,
 				61FFF9601CFDFC8100C9A256 /* TFHpple.m in Sources */,
