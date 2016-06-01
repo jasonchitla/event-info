@@ -72,7 +72,6 @@
 		61FFF9451CFDE33000C9A256 /* Event Info */ = {
 			isa = PBXGroup;
 			children = (
-				61FFF9591CFDFC8100C9A256 /* Event Info-Bridging-Header.h */,
 				61FFF9581CFDFC6E00C9A256 /* Hpple */,
 				61FFF9461CFDE33000C9A256 /* AppDelegate.swift */,
 				61FFF9481CFDE33000C9A256 /* ViewController.swift */,
@@ -82,6 +81,7 @@
 				61FFF9521CFDE33000C9A256 /* Info.plist */,
 				61FFF9651CFE138800C9A256 /* ParseManager.swift */,
 				61FFF9671CFE13A500C9A256 /* Festival.swift */,
+				61FFF9591CFDFC8100C9A256 /* Event Info-Bridging-Header.h */,
 			);
 			path = "Event Info";
 			sourceTree = "<group>";
@@ -333,6 +333,7 @@
 				61FFF9571CFDE33000C9A256 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

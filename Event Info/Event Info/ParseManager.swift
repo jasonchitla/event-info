@@ -24,23 +24,25 @@ final class ParseManager {
     private init() {}
 
     // MARK: Scrape calls
-    func parseSongkickFestivalURLToFetchLineUp(url: NSURL, completion: CompletionEvent) {
+    
+    // fetches lineup
+    func parseSongkickFestivalURL(url: NSURL, completion: CompletionEvent) {
         guard let data:NSData = NSData(contentsOfURL: url) else {
             completion(bands: [], error: "Error")
             return
         }
         
         let parser:TFHpple = TFHpple(HTMLData: data)
-        let tutorialsString:String = "//div[@class='line-up']/ul/li"
-        let array:[AnyObject] = parser.searchWithXPathQuery(tutorialsString)
-        var bandArray = [Band]()
+        let lineupPath:String = "//div[@class='line-up']/ul/li"
+        let lineupRawData:[AnyObject] = parser.searchWithXPathQuery(lineupPath)
+        var lineup = [Band]()
         
-        for element in array {
-            bandArray += [Band(url: NSURL(string: SONGKICK + element.firstChild!.objectForKey("href")), name: element.firstChild!.content)]
+        for element in lineupRawData {
+            lineup += [Band(url: NSURL(string: SONGKICK + element.firstChild!.objectForKey("href")), name: element.firstChild!.content)]
         }
         
         dispatch_async(dispatch_get_main_queue(), {
-            completion(bands: bandArray, error: nil)
+            completion(bands: lineup, error: nil)
         })
     }
 
