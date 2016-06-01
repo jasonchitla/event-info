@@ -15,10 +15,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parseHardCodedExample()
+        parseSongkickExample()
+        parseFrontGateExample()
     }
     
-    func parseHardCodedExample() {
+    func parseSongkickExample() {
         // URL
         let url:NSURL? = NSURL(string: "https://www.songkick.com/festivals/1253518-bestival-toronto/id/26468909-bestival-toronto-2016")
         
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
                 (result, error) -> () in
                 guard error == nil else {
                     // alert of error
+                    print("Error/ Songkick")
                     return
                 }
                 self.festival.lineup = result
@@ -36,6 +38,26 @@ class ViewController: UIViewController {
                     if let url = band.url {
                         print(url)
                     }
+                }
+            }
+        }
+    }
+    
+    func parseFrontGateExample() {
+        // URL
+        let url:NSURL? = NSURL(string: "http://www.frontgatetickets.com/festivals/bestival/")
+        
+        // Parse
+        if let url = url {
+            ParseManager.sharedInstance.parseFrontGateFestivalURL(url) {
+                (result, error) -> () in
+                guard error == nil else {
+                    // alert of error
+                    print("Error/ Front Gate")
+                    return
+                }
+                if let result = result {
+                    print(result)
                 }
             }
         }
