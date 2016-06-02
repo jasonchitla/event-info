@@ -16,35 +16,6 @@ struct Festival {
     init (name: String) {
         // set name
         self.name = name
-        
-        // set lineup
-        /*if let url = NSURL(string: dictionary["SongkickURL"]!) {
-            ParseManager.sharedInstance.parseSongkickFestivalURL(url, completion: {
-                (result, error) -> () in
-                guard error == nil else {
-                    // alert of error
-                    print("Error/ Songkick")
-                    return
-                }
-                self.lineup = result
-            })
-        }
-        
-        // set bio
-        if let url = NSURL(string: dictionary["FrontGateURL"]!) {
-            ParseManager.sharedInstance.parseFrontGateFestivalURL(url, completion: {
-                (result, error) -> () in
-                guard error == nil else {
-                    // alert of error
-                    print("Error/ FrontGate")
-                    return
-                }
-                
-                if let result = result {
-                    self.biography = result
-                }
-            })
-        }*/
     }
 }
 

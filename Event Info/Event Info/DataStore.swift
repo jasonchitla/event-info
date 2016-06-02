@@ -9,12 +9,26 @@
 import Foundation
 
 final class DataStore {
-    private var store: [String: [String: String]] = [:]
-    private var festivalsArray = [Festival]()
     
+    // MARK: Properties
+    static let sharedInstance = DataStore()
+    private var store: [String: [String: String]] = [:]
+    var observer: DataStoreObserverProtocol?
+    private var festivalsArray = [Festival]() {
+        willSet(newValue) {
+            observer?.willChangeDataStoreFestivalsArray(newValue)
+        }
+        didSet {
+            observer?.didChangeDataStoreFestivalsArray(oldValue)
+        }
+    }
+    
+    // MARK: Completion Handler alias
     typealias InitCompletion = (festivals: [Festival], error: String?) -> ()
     
-    init() {
+    // MARK: Initialization
+    // private init because singleton
+    private init() {
         store["Free Press Summer Festival"] = ["SongkickURL":"https://www.songkick.com/festivals/663099-free-press-summer/id/26354774-free-press-summer-festival-2016",
                                                 "FrontGateURL":"http://www.frontgatetickets.com/festivals/free-press-summer-festival/"]
         store["Bestival"] = ["SongkickURL":"https://www.songkick.com/festivals/1253518-bestival-toronto/id/26468909-bestival-toronto-2016",
@@ -34,11 +48,11 @@ final class DataStore {
                 return
             }
             self.festivalsArray = festivals
-            self.printFestivals()
         })
     }
     
-    func createFestivalsArray(completion: InitCompletion) {
+    // fetch all festival info, create each individual festival with that information, and return array with those festivals
+    private func createFestivalsArray(completion: InitCompletion) {
         var array = [Festival]()
         
         // create dispatch group
@@ -90,15 +104,10 @@ final class DataStore {
             })
         })
     }
-    
-    func printFestivals() {
-        for festival in festivalsArray {
-            print(festival.name)
-            for band in festival.lineup {
-                print(band.name)
-            }
-            print(festival.biography)
-            print("***********************************")
-        }
-    }
+}
+
+// MARK: Observer protocol
+protocol DataStoreObserverProtocol {
+    func willChangeDataStoreFestivalsArray(newPropertyValue:[Festival])
+    func didChangeDataStoreFestivalsArray(oldPropertyValue:[Festival])
 }
