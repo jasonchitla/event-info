@@ -16,8 +16,13 @@ final class ParseManager {
     // MARK: Constants
     private let SONGKICK: String = "http://www.songkick.com"
     
+    // MARK: Network Configuration
+    private static let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+    private let session = NSURLSession(configuration: sessionConfig)
+    
     // MARK: Completion Handler aliases
-    typealias CompletionEvent = (bands: [Band], error: String?) -> ()
+    typealias SongkickParseCompletion = (bands: [Band], error: String?) -> ()
+    typealias FrontGateParseCompletion = (eventBiography: String?, error: String?) -> ()
     
     // MARK: Initialization
     // private init because it's a singleton
@@ -25,25 +30,65 @@ final class ParseManager {
 
     // MARK: Scrape calls
     
-    // fetches lineup
-    func parseSongkickFestivalURL(url: NSURL, completion: CompletionEvent) {
-        guard let data:NSData = NSData(contentsOfURL: url) else {
-            completion(bands: [], error: "Error")
-            return
+    // fetches lineup from songkick
+    func parseSongkickFestivalURL(url: NSURL, completion: SongkickParseCompletion) {
+        let urlRequest = NSURLRequest(URL: url)
+        
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) in
+            
+            guard error == nil else {
+                completion(bands: [], error: "Error: could not ping url")
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(bands: [], error: "Error: did not receive data")
+                return
+            }
+            
+            let parser:TFHpple = TFHpple(HTMLData: responseData)
+            let lineupPath:String = "//div[@class='line-up']/ul/li"
+            let lineupRawData:[AnyObject] = parser.searchWithXPathQuery(lineupPath)
+            var lineup = [Band]()
+            
+            for element in lineupRawData {
+                lineup += [Band(url: NSURL(string: self.SONGKICK + element.firstChild!.objectForKey("href")), name: element.firstChild!.content)]
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                completion(bands: lineup, error: nil)
+            })
         }
+        task.resume()
+    }
+    
+    // fetches event bio from frontgate
+    func parseFrontGateFestivalURL(url: NSURL, completion: FrontGateParseCompletion) {
+        let urlRequest = NSURLRequest(URL: url)
         
-        let parser:TFHpple = TFHpple(HTMLData: data)
-        let lineupPath:String = "//div[@class='line-up']/ul/li"
-        let lineupRawData:[AnyObject] = parser.searchWithXPathQuery(lineupPath)
-        var lineup = [Band]()
-        
-        for element in lineupRawData {
-            lineup += [Band(url: NSURL(string: SONGKICK + element.firstChild!.objectForKey("href")), name: element.firstChild!.content)]
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) in
+            
+            guard error == nil else {
+                completion(eventBiography: nil, error: "Error: could not ping url")
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(eventBiography: nil, error: "Error: did not receive data")
+                return
+            }
+            
+            let parser:TFHpple = TFHpple(HTMLData: responseData)
+            let eventBiographyPath:String = "//div[@class='article-main-content']/section[@class='entry-content']/h4"
+            let eventBiographyRawData:[AnyObject] = parser.searchWithXPathQuery(eventBiographyPath)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                completion(eventBiography: eventBiographyRawData[0].content, error: nil)
+            })
         }
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            completion(bands: lineup, error: nil)
-        })
+        task.resume()
     }
 
 }

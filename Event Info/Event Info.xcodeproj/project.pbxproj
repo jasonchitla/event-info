@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61A891561D007A3B00AC03AB /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A891551D007A3B00AC03AB /* DataStore.swift */; };
 		61FFF9471CFDE33000C9A256 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF9461CFDE33000C9A256 /* AppDelegate.swift */; };
 		61FFF9491CFDE33000C9A256 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFF9481CFDE33000C9A256 /* ViewController.swift */; };
 		61FFF94C1CFDE33000C9A256 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FFF94A1CFDE33000C9A256 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61A891551D007A3B00AC03AB /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		61FFF9431CFDE33000C9A256 /* Event Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FFF9461CFDE33000C9A256 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61FFF9481CFDE33000C9A256 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				61FFF9521CFDE33000C9A256 /* Info.plist */,
 				61FFF9651CFE138800C9A256 /* ParseManager.swift */,
 				61FFF9671CFE13A500C9A256 /* Festival.swift */,
+				61A891551D007A3B00AC03AB /* DataStore.swift */,
 				61FFF9591CFDFC8100C9A256 /* Event Info-Bridging-Header.h */,
 			);
 			path = "Event Info";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FFF9611CFDFC8100C9A256 /* TFHppleElement.m in Sources */,
+				61A891561D007A3B00AC03AB /* DataStore.swift in Sources */,
 				61FFF9661CFE138800C9A256 /* ParseManager.swift in Sources */,
 				61FFF9681CFE13A500C9A256 /* Festival.swift in Sources */,
 				61FFF9491CFDE33000C9A256 /* ViewController.swift in Sources */,

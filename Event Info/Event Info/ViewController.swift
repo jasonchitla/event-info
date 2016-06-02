@@ -8,36 +8,36 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DataStoreObserverProtocol {
  
-    var festival:Festival = Festival(name: "Bestival", lineup: [])
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parseHardCodedExample()
+        DataStore.sharedInstance.observer = self
     }
     
-    func parseHardCodedExample() {
-        // URL
-        let url:NSURL? = NSURL(string: "https://www.songkick.com/festivals/1253518-bestival-toronto/id/26468909-bestival-toronto-2016")
-        
-        // Parse
-        if let url = url {
-            ParseManager.sharedInstance.parseSongkickFestivalURL(url) {
-                (result, error) -> () in
-                guard error == nil else {
-                    // alert of error
-                    return
-                }
-                self.festival.lineup = result
-                for band in self.festival.lineup {
-                    print(band.name)
-                    if let url = band.url {
-                        print(url)
-                    }
-                }
+    // MARK: DataStoreObserverProtocol functions
+    func willChangeDataStoreFestivalsArray(newPropertyValue: [Festival]) {
+        print("ABOUT TO CHANGE FESTIVALS ARRAY")
+        for festival in newPropertyValue {
+            print(festival.name)
+            for band in festival.lineup {
+                print(band.name)
             }
+            print(festival.biography)
+            print("***********************************")
+        }
+    }
+    
+    func didChangeDataStoreFestivalsArray(oldPropertyValue: [Festival]) {
+        print("FESTIVALS ARRAY CHANGED")
+        for festival in oldPropertyValue {
+            print(festival.name)
+            for band in festival.lineup {
+                print(band.name)
+            }
+            print(festival.biography)
+            print("***********************************")
         }
     }
 }

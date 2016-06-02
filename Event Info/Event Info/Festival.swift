@@ -10,10 +10,17 @@ import Foundation
 
 struct Festival {
     let name:String
-    var lineup:[Band]
+    var lineup = [Band]()
+    var biography: String = ""
+    
+    init (name: String) {
+        // set name
+        self.name = name
+    }
 }
 
 struct Band {
     let url:NSURL?
     let name:String
 }
+
