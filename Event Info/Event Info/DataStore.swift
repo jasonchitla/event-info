@@ -29,6 +29,7 @@ final class DataStore {
     // MARK: Initialization
     // private init because singleton
     private init() {
+        // hardcoded list of festivals paired with a songkick url and a front gate url
         store["Free Press Summer Festival"] = ["SongkickURL":"https://www.songkick.com/festivals/663099-free-press-summer/id/26354774-free-press-summer-festival-2016",
                                                 "FrontGateURL":"http://www.frontgatetickets.com/festivals/free-press-summer-festival/"]
         store["Bestival"] = ["SongkickURL":"https://www.songkick.com/festivals/1253518-bestival-toronto/id/26468909-bestival-toronto-2016",
@@ -39,6 +40,18 @@ final class DataStore {
                              "FrontGateURL":"http://www.frontgatetickets.com/festivals/big-apple-bbq-block-party/"]
         store["Country Fest"] = ["SongkickURL":"https://www.songkick.com/festivals/104391-country-fest/id/25620544-country-fest-2016",
                              "FrontGateURL":"http://www.frontgatetickets.com/festivals/country-fest/"]
+        store["EDC Las Vegas"] = ["SongkickURL":"https://www.songkick.com/festivals/736204-edc-las-vegas/id/26777084-edc-las-vegas-2016",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/edc-las-vegas/"]
+        store["Electric Forest Festival"] = ["SongkickURL":"https://www.songkick.com/festivals/183146-electric-forest/id/26087878-electric-forest-festival-2016",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/electric-forest-festival/"]
+        store["Digital Dreams"] = ["SongkickURL":"https://www.songkick.com/festivals/413113-digital-dreams/id/26488559-digital-dreams-festival-2016",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/digital-dreams/"]
+        store["FVDED in the Park"] = ["SongkickURL":"https://www.songkick.com/festivals/1296473-fvded-in-the-park/id/26555579-fvded-in-the-park-2016",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/fvded-in-the-park/"]
+        store["RBC Ottawa Blues Fest"] = ["SongkickURL":"https://www.songkick.com/festivals/1034473-rbc-ottawa-bluesfest/id/26722794-rbc-ottawa-bluesfest-2016",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/rbc-ottawa-blues-fest/"]
+        //store[""] = ["SongkickURL":"",
+        //             "FrontGateURL":""]
         
         createFestivalsArray({
             (festivals, error) -> () in
