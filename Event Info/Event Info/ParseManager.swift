@@ -52,13 +52,18 @@ final class ParseManager {
             let lineupRawData:[AnyObject] = parser.searchWithXPathQuery(lineupPath)
             var lineup = [Band]()
             
-            for element in lineupRawData {
-                lineup += [Band(url: NSURL(string: self.SONGKICK + element.firstChild!.objectForKey("href")), name: element.firstChild!.content)]
+            if !lineupRawData.isEmpty {
+                for element in lineupRawData {
+                    lineup += [Band(url: NSURL(string: self.SONGKICK + element.firstChild!.objectForKey("href")), name: element.firstChild!.content)]
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(bands: lineup, error: nil)
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(bands: [], error: "no lineup exists on songkick")
+                })
             }
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                completion(bands: lineup, error: nil)
-            })
         }
         task.resume()
     }
@@ -84,9 +89,15 @@ final class ParseManager {
             let eventBiographyPath:String = "//div[@class='article-main-content']/section[@class='entry-content']/h4"
             let eventBiographyRawData:[AnyObject] = parser.searchWithXPathQuery(eventBiographyPath)
             
-            dispatch_async(dispatch_get_main_queue(), {
-                completion(eventBiography: eventBiographyRawData[0].content, error: nil)
-            })
+            if !eventBiographyRawData.isEmpty {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(eventBiography: eventBiographyRawData[0].content, error: nil)
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(eventBiography: nil, error: "no bio exists on front gate")
+                })
+            }
         }
         task.resume()
     }

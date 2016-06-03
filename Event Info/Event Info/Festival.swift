@@ -11,7 +11,7 @@ import Foundation
 struct Festival {
     let name:String
     var lineup = [Band]()
-    var biography: String = ""
+    var biography: String?
     
     init (name: String) {
         // set name

@@ -18,26 +18,34 @@ class ViewController: UIViewController, DataStoreObserverProtocol {
     
     // MARK: DataStoreObserverProtocol functions
     func willChangeDataStoreFestivalsArray(newPropertyValue: [Festival]) {
-        print("ABOUT TO CHANGE FESTIVALS ARRAY")
+        print("ABOUT TO CHANGE FESTIVALS ARRAY TO:")
         for festival in newPropertyValue {
             print(festival.name)
             for band in festival.lineup {
                 print(band.name)
             }
-            print(festival.biography)
+            if let biography = festival.biography {
+                print("BIOGRAPHY: " + biography)
+            }
             print("***********************************")
         }
     }
     
     func didChangeDataStoreFestivalsArray(oldPropertyValue: [Festival]) {
-        print("FESTIVALS ARRAY CHANGED")
-        for festival in oldPropertyValue {
-            print(festival.name)
-            for band in festival.lineup {
-                print(band.name)
+        print("FESTIVALS ARRAY CHANGED FROM:")
+        if oldPropertyValue.isEmpty {
+            print("nothing was in the array before the change!")
+        } else {
+            for festival in oldPropertyValue {
+                print(festival.name)
+                for band in festival.lineup {
+                    print(band.name)
+                }
+                if let biography = festival.biography {
+                    print("BIOGRAPHY: " + biography)
+                }
+                print("***********************************")
             }
-            print(festival.biography)
-            print("***********************************")
         }
     }
 }

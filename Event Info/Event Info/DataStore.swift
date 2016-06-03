@@ -50,6 +50,10 @@ final class DataStore {
                      "FrontGateURL":"http://www.frontgatetickets.com/festivals/fvded-in-the-park/"]
         store["RBC Ottawa Blues Fest"] = ["SongkickURL":"https://www.songkick.com/festivals/1034473-rbc-ottawa-bluesfest/id/26722794-rbc-ottawa-bluesfest-2016",
                      "FrontGateURL":"http://www.frontgatetickets.com/festivals/rbc-ottawa-blues-fest/"]
+        store["Stampede Roundup"] = ["SongkickURL":"https://www.songkick.com/concerts/26840014-moist-at-fort-calgary",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/stampede-roundup/"]
+        store["Senseless"] = ["SongkickURL":"https://www.songkick.com/concerts/27098624-senseless-at-evergreen-brick-works",
+                     "FrontGateURL":"http://www.frontgatetickets.com/festivals/senseless/"]
         //store[""] = ["SongkickURL":"",
         //             "FrontGateURL":""]
         
@@ -82,6 +86,7 @@ final class DataStore {
                     guard error == nil else {
                         // alert of error
                         print("Error/ Songkick")
+                        dispatch_group_leave(festivalCreationGroup)
                         return
                     }
                     festival.lineup = result
@@ -97,6 +102,7 @@ final class DataStore {
                     guard error == nil else {
                         // alert of error
                         print("Error/ FrontGate")
+                        dispatch_group_leave(festivalCreationGroup)
                         return
                     }
                     
